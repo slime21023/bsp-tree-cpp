@@ -126,7 +126,7 @@ void BSPTree::split()
         }
     }
 
-    double temp_distance = 0;
+    temp_distance = 0;
     for (auto p: points)
     {
         double d = points_distance(fp, p, dim);
@@ -153,11 +153,9 @@ void BSPTree::split()
         }
     }
 
-    fps.push_back(fp);
-    sps.push_back(sp);
-
     first = new BSPTree(dim, leaf_size, fps);
     second = new BSPTree(dim, leaf_size, sps);
+    points.clear();
     first->pivot = fp;
     second->pivot = sp;
 }
